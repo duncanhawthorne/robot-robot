@@ -19,7 +19,7 @@ def print(x,end=None):
   if type(x) == str:
     None
     #x = x.replace("<","&lt;").replace(">","&rt;")
-  orig_print(x)
+  orig_print(x.encode('utf-8').strip())
   if end != "":
     orig_print("<br>")
 
@@ -43,5 +43,6 @@ try:
   exec(doc)
 except:
   logging.debug(str(sys.exc_info()))
+  print("base python file exception")
   print(sys.exc_info())
   print("Crash on running code in doc "+key_doc_id)
