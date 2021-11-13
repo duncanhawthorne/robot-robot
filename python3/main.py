@@ -11,7 +11,7 @@ def import_gdoc(docid):
     return doc
 
 def main(path):
-
+    master_path = "REDACTED"
     running_print = [""] #put this inside main so that running_print gets reset everything you press refresh
     def orig_print(x): #without html break characters
         if type(x) == bytes:
@@ -32,7 +32,7 @@ def main(path):
         return "Alive"
     else:
         try:
-            exec(import_gdoc(path))
+            exec(import_gdoc(master_path))
         except:
             print(sys.exc_info())
     return running_print[0]
