@@ -1,5 +1,6 @@
 
 import builtins, os, sys, urllib.request
+from curl_cffi import requests
 
 def import_gdoc(docid):
     doc_url = "https://docs.google.com/document/d/"+docid+"/export?format=txt"
@@ -32,7 +33,7 @@ def main(path):
         return "Alive"
     else:
         try:
-            exec(import_gdoc(master_path))
+            exec(import_gdoc(master_path), globals(), locals())
         except:
             print(sys.exc_info())
     return running_print[0]
